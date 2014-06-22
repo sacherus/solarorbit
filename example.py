@@ -6,13 +6,13 @@ from pygame.sprite import Sprite
 import numpy as np
 import numpy
 
+#Your changes here
+multi = 50
 
+#My code
 image_dir = "/"
-
 scale_dist = 300. / (149600000 * 1000)
-
 sun_mass = 1.9891e30  # kg
-
 speed_mars = 24.13 * 1000
 
 
@@ -80,7 +80,6 @@ class RK4(GlobalSolver):
         v = k_v[0] + (k_v[1] + 2 * k_v[2] + 2 * k_v[3] + k_v[4]) / 6
 
         if (np.isnan(np.sum(x))):
-            print "shit"
             return k_x[0], k_v[0]
 
         return x, v
@@ -204,7 +203,7 @@ class App:
         self.objects.append(Earth(self.screen, list(self.half_size)))
         self.objects.append(Mars(self.screen, list(self.half_size)))
         self.objects.append(Ship(self.screen, list(self.half_size)))
-        self.objects.append(Moon(self.screen, list(self.half_size)))
+        # self.objects.append(Moon(self.screen, list(self.half_size)))
         # self.objects.append(Ship(self.screen, list(self.half_size)))
         self.solver = RK4()
 
